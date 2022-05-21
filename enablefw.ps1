@@ -21,3 +21,4 @@ Enable-NetFirewallRule -Name "RVM-VDSLDR-In-TCP-NoScope"
 Enable-NetFirewallRule -Name "RRAS-GRE-In"
 Enable-NetFirewallRule -Name "RRAS-L2TP-In-UDP"
 Enable-NetFirewallRule -Name "RRAS-PPTP-In-TCP"
+Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RunMRU -Recurse
